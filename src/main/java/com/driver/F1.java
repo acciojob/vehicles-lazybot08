@@ -11,7 +11,7 @@ public class F1 extends Car {
     }
 
     public void accelerate(int rate){
-        int newSpeed = this.getCurrentSpeed()+rate; //set the value of new speed by using currentSpeed and rate
+    	int newSpeed = getCurrentSpeed() + rate; //set the value of new speed by using currentSpeed and rate
         /**
          * speed 0: gear 1
          * speed 1-50: gear 1
@@ -24,26 +24,25 @@ public class F1 extends Car {
 
         if(newSpeed == 0) {
             //Stop the car, set gear as 1
-        	this.changeGear(1);
-        	this.stop();
-        }else if(newSpeed>0 && newSpeed<=50) {
-        	this.changeGear(1);
-        }else if(newSpeed>50 && newSpeed<=100) {
-        	this.changeGear(2);
-        }else if(newSpeed>100 && newSpeed<=150) {
-        	this.changeGear(3);
-        }else if(newSpeed>150 && newSpeed<=200) {
-        	this.changeGear(4);
-        }else if(newSpeed>200 && newSpeed<=250) {
-        	this.changeGear(5);
-        }else if(newSpeed>250) {
-        	this.changeGear(6);
+            this.changeGear(1);
+            this.stop();
         }
         //for all other cases, change the gear accordingly
-        
-
+        else if (newSpeed <= 50) {
+            this.changeGear(1);
+        } else if (newSpeed <= 100) {
+        	this.changeGear(2);
+        } else if (newSpeed <= 150) {
+        	this.changeGear(3);
+        } else if (newSpeed <= 200) {
+        	this.changeGear(4);
+        } else if (newSpeed <= 250) {
+        	this.changeGear(5);
+        } else {
+        	this.changeGear(6);
+        }
         if(newSpeed > 0) {
-            changeSpeed(newSpeed, this.getCurrentDirection());
+        	this.changeSpeed(newSpeed, getCurrentDirection());
         }
     }
 }
